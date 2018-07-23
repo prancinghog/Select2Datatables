@@ -1,0 +1,35 @@
+.select2-container {
+	table-layout: fixed;
+	position: relative;
+	z-index: 2;
+	float: left;
+	margin-bottom: 0;
+	display: inline-block;
+	box-sizing : border-box;
+	min-width: 100%;
+	text-overflow: ellipsis;
+}
+
+.select2-container .select2-selection, .select2-selection--multiple {
+	overflow: auto !important;
+	height: 50px;
+	margin-top: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.thead-label2 .container {
+	
+	white-space: nowrap !important;
+	overflow: hidden !important;
+}
+
+.select2 .select2-container {
+	
+	display: inline-block;
+}
+
+.select2-selection--single {
+  overflow: hidden;
+  text-overflow: ellipse;
+}
