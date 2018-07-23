@@ -1,0 +1,226 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css"/>
+	<link rel="stylesheet" href="material-components-web.min.css"/>
+	<link rel="stylesheet" href="custom.css"/>
+	</head>
+	
+	<body>
+	<table id="example" class="mdl-data-table" style="width:100%">
+        <thead>
+            <tr>
+                <th class="thead-label">Name</th>
+                <th class="thead-label">Position</th>
+                <th class="thead-label">Office</th>
+                <th class=""></th>
+                <th class=""></th>
+                <th class=""></th>
+            </tr>
+			<tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>            
+        </tbody>
+        
+    </table>
+	
+	<table id="example2" class="mdl-data-table" style="width:100%">
+        <thead>
+            <tr>
+                <div class="container111"><th class="thead-label2 container">Name</th></div>
+                <th class="thead-label2">Position</th>
+                <th class="thead-label2">Office</th>
+                <th class=""></th>
+                <th class=""></th>
+                <th class=""></th>
+            </tr>
+			<tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id ="Nixon">Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td id="Winters">Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+			<tr>
+                <td id="Cox">Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>  
+<tr>
+                <td id ="Nixon">Tiger Ni1xon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td id="Winters">Garrett asd sdasfdo Wienters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+			<tr>
+                <td id="Cox">Ashton Cofx</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr> 			
+        </tbody>        
+    </table>
+	<select id="cuisine-select" name="_sft_post_tag" multiple="multiple" tabindex="-1" class="select2" aria-hidden="true" style="width: 20%">
+    <option value="banting">Banting</option>
+    <option value="pasta">Pasta</option>
+    <option value="pizza">Pizza</option>
+    <option value="seafood">Seafood</option>
+    <option value="vegan">Vegan</option>
+    <option value="vegetarian">Vegetarian</option>
+</select>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
+	<script type="text/javascript" src="material-components-web.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			var table = $('#example').DataTable( {		
+				columnDefs: [
+					{
+						targets: [ 0, 1, 2 ],
+						className: 'mdl-data-table__cell--non-numeric'
+					}
+				]
+			} );
+			
+			$(".thead-label").each( function ( i ) {
+				//var select = $('<div class="mdc-select"><select class="mdc-select__native-control"><option value="" disabled selected></option><option value=""></option></select><label class="mdc-floating-label">Pick a value</label><div class="mdc-line-ripple"></div></div>')
+				var select = $('<select class="mdc-select__native-control"></option><option value=""></option></select><label class="mdc-floating-label">Pick a Food Group</label><div class="mdc-line-ripple"></div>')
+							.appendTo( $(this).empty() )
+							.on( 'change', function () {
+								var term = $(this).val();
+								table.column( i ).search(term, false, false ).draw();
+							} );
+				table.column( i ).data().unique().sort().each( function ( d, j ) {
+					select.append( '<option value="'+d+'">'+d+'</option>' )
+				} );
+			} );
+		} );
+		
+		
+		$(document).ready(function() {
+		
+			function filterGlobal () {
+				$('#example2').DataTable().search(
+					$('#global_filter').val(),
+					$('#global_regex').prop('checked'),
+					$('#global_smart').prop('checked')
+				).draw();
+			}
+			 
+			function filterColumn ( i ) {
+				$('#example2').DataTable().column( i ).search(
+					$('#col'+i+'_filter').val(),
+					$('#col'+i+'_regex').prop('checked'),
+					$('#col'+i+'_smart').prop('checked')
+				).draw();
+			}
+
+			var table = $('#example2').DataTable( {		
+				columnDefs: [
+					{
+						targets: [ 0, 1, 2 ],
+						className: 'mdl-data-table__cell--non-numeric'
+					}
+				]
+			} );
+			$(".thead-label2").each( function ( i ) {
+				//var select = $('<div class="mdc-select"><select class="mdc-select__native-control"><option value="" disabled selected></option><option value=""></option></select><label class="mdc-floating-label">Pick a value</label><div class="mdc-line-ripple"></div></div>')
+				//				<select id="cuisine-select" name="_sft_post_tag" multiple="multiple" tabindex="-1" class="select2" aria-hidden="true">
+				var select = $('<select id="thead-label" class="mdc-select__native-control1 select2" multiple="multiple"></select>')
+							.appendTo( $(this).empty() )
+							.on( 'change', function () {
+								var term = $(this).val().join('|');
+								table.column( i ).search(term, true, false ).draw();
+							} );
+				table.column( i ).data().unique().sort().each( function ( d, j ) {
+					select.append( '<option value="'+d+'" id="'+d+'">'+d+'</option>' )
+				} );
+			} );
+			$('.select2').select2({
+				dropdownAutoWidth : false,
+				width: 'resolve',
+				placeholder: "Please select a value to filter"
+			});
+			//$('.select2').on("select2:selecting", function(e) { 
+			/*	$( ".select2" ).change(function() {
+					var selectedValues = console.log($("#thead-label").val().join('|'));
+					table.search( selectedValues ).draw();
+				});*/
+			//});
+			// Apply the search
+			
+		} );
+	</script>
+	</body>
+
+</html>
